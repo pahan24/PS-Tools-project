@@ -1,0 +1,1213 @@
+{
+  "tools": [
+    {
+      "id": "ai-text",
+      "name": "AI Text Generator",
+      "category": "AI Tools",
+      "description": "Generate creative text content using AI",
+      "icon": "✍️",
+      "path": "/tools/ai-text.html",
+      "enabled": true,
+      "featured": true,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top",
+          "sidebar",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "ai-image",
+      "name": "AI Image Generator",
+      "category": "AI Tools",
+      "description": "Create images from text descriptions",
+      "icon": "🎨",
+      "path": "/tools/ai-image.html",
+      "enabled": true,
+      "featured": true,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "ai-code",
+      "name": "AI Code Generator",
+      "category": "AI Tools",
+      "description": "Generate code snippets with AI",
+      "icon": "💻",
+      "path": "/tools/ai-code.html",
+      "enabled": true,
+      "featured": true,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top",
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "ai-translator",
+      "name": "AI Translator",
+      "category": "AI Tools",
+      "description": "Translate text between languages",
+      "icon": "🌐",
+      "path": "/tools/ai-translator.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "ai-rewriter",
+      "name": "AI Text Rewriter",
+      "category": "AI Tools",
+      "description": "Rewrite and paraphrase text",
+      "icon": "🔄",
+      "path": "/tools/ai-rewriter.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "ai-summarizer",
+      "name": "AI Summarizer",
+      "category": "AI Tools",
+      "description": "Summarize long text quickly",
+      "icon": "📝",
+      "path": "/tools/ai-summarizer.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "ai-story",
+      "name": "AI Story Writer",
+      "category": "AI Tools",
+      "description": "Create creative stories with AI",
+      "icon": "📖",
+      "path": "/tools/ai-story.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "ai-chat",
+      "name": "AI Chat Assistant",
+      "category": "AI Tools",
+      "description": "Chat with an AI assistant",
+      "icon": "💬",
+      "path": "/tools/ai-chat.html",
+      "enabled": true,
+      "featured": true,
+      "ads": {
+        "enabled": false,
+        "positions": []
+      }
+    },
+    {
+      "id": "ai-qa",
+      "name": "AI Q&A",
+      "category": "AI Tools",
+      "description": "Get answers to your questions",
+      "icon": "❓",
+      "path": "/tools/ai-qa.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "ai-blog",
+      "name": "AI Blog Writer",
+      "category": "AI Tools",
+      "description": "Generate blog posts with AI",
+      "icon": "📰",
+      "path": "/tools/ai-blog.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top",
+          "sidebar",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "image-compressor",
+      "name": "Image Compressor",
+      "category": "Image Tools",
+      "description": "Compress images to reduce file size",
+      "icon": "📦",
+      "path": "/tools/image-compressor.html",
+      "enabled": true,
+      "featured": true,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "image-resizer",
+      "name": "Image Resizer",
+      "category": "Image Tools",
+      "description": "Resize images to custom dimensions",
+      "icon": "📏",
+      "path": "/tools/image-resizer.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "image-cropper",
+      "name": "Image Cropper",
+      "category": "Image Tools",
+      "description": "Crop images easily",
+      "icon": "✂️",
+      "path": "/tools/image-cropper.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "image-converter",
+      "name": "Image Converter",
+      "category": "Image Tools",
+      "description": "Convert between image formats",
+      "icon": "🔄",
+      "path": "/tools/image-converter.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "png-jpg-converter",
+      "name": "PNG to JPG Converter",
+      "category": "Image Tools",
+      "description": "Convert PNG images to JPG",
+      "icon": "🖼️",
+      "path": "/tools/png-jpg-converter.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "webp-converter",
+      "name": "WebP Converter",
+      "category": "Image Tools",
+      "description": "Convert images to/from WebP format",
+      "icon": "🌐",
+      "path": "/tools/webp-converter.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "image-rotate",
+      "name": "Image Rotator",
+      "category": "Image Tools",
+      "description": "Rotate images by any angle",
+      "icon": "🔄",
+      "path": "/tools/image-rotate.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "image-blur",
+      "name": "Image Blur",
+      "category": "Image Tools",
+      "description": "Apply blur effect to images",
+      "icon": "🌫️",
+      "path": "/tools/image-blur.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "image-sharpen",
+      "name": "Image Sharpen",
+      "category": "Image Tools",
+      "description": "Sharpen blurry images",
+      "icon": "✨",
+      "path": "/tools/image-sharpen.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "meme-generator",
+      "name": "Meme Generator",
+      "category": "Image Tools",
+      "description": "Create memes with custom text",
+      "icon": "😂",
+      "path": "/tools/meme-generator.html",
+      "enabled": true,
+      "featured": true,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "sticker-maker",
+      "name": "Sticker Maker",
+      "category": "Image Tools",
+      "description": "Create custom stickers",
+      "icon": "🎭",
+      "path": "/tools/sticker-maker.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "gif-maker",
+      "name": "GIF Maker",
+      "category": "Image Tools",
+      "description": "Create animated GIFs",
+      "icon": "🎬",
+      "path": "/tools/gif-maker.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top",
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "word-counter",
+      "name": "Word Counter",
+      "category": "Text Tools",
+      "description": "Count words, characters, and sentences",
+      "icon": "📊",
+      "path": "/tools/word-counter.html",
+      "enabled": true,
+      "featured": true,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "char-counter",
+      "name": "Character Counter",
+      "category": "Text Tools",
+      "description": "Count characters in text",
+      "icon": "🔢",
+      "path": "/tools/char-counter.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "text-cleaner",
+      "name": "Text Cleaner",
+      "category": "Text Tools",
+      "description": "Remove extra spaces and clean text",
+      "icon": "🧹",
+      "path": "/tools/text-cleaner.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "case-converter",
+      "name": "Case Converter",
+      "category": "Text Tools",
+      "description": "Convert text case (upper, lower, title)",
+      "icon": "🔤",
+      "path": "/tools/case-converter.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "remove-spaces",
+      "name": "Remove Spaces",
+      "category": "Text Tools",
+      "description": "Remove all spaces from text",
+      "icon": "⬜",
+      "path": "/tools/remove-spaces.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "duplicate-lines",
+      "name": "Remove Duplicate Lines",
+      "category": "Text Tools",
+      "description": "Remove duplicate lines from text",
+      "icon": "📋",
+      "path": "/tools/duplicate-lines.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "lorem-ipsum",
+      "name": "Lorem Ipsum Generator",
+      "category": "Text Tools",
+      "description": "Generate placeholder text",
+      "icon": "📄",
+      "path": "/tools/lorem-ipsum.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "text-to-speech",
+      "name": "Text to Speech",
+      "category": "Text Tools",
+      "description": "Convert text to speech audio",
+      "icon": "🔊",
+      "path": "/tools/text-to-speech.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "palindrome-checker",
+      "name": "Palindrome Checker",
+      "category": "Text Tools",
+      "description": "Check if text is a palindrome",
+      "icon": "🔄",
+      "path": "/tools/palindrome-checker.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "json-formatter",
+      "name": "JSON Formatter",
+      "category": "Developer Tools",
+      "description": "Format and beautify JSON",
+      "icon": "{ }",
+      "path": "/tools/json-formatter.html",
+      "enabled": true,
+      "featured": true,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top",
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "json-minifier",
+      "name": "JSON Minifier",
+      "category": "Developer Tools",
+      "description": "Minify JSON code",
+      "icon": "📦",
+      "path": "/tools/json-minifier.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "html-minifier",
+      "name": "HTML Minifier",
+      "category": "Developer Tools",
+      "description": "Minify HTML code",
+      "icon": "📄",
+      "path": "/tools/html-minifier.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "css-minifier",
+      "name": "CSS Minifier",
+      "category": "Developer Tools",
+      "description": "Minify CSS code",
+      "icon": "🎨",
+      "path": "/tools/css-minifier.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "js-minifier",
+      "name": "JavaScript Minifier",
+      "category": "Developer Tools",
+      "description": "Minify JavaScript code",
+      "icon": "⚡",
+      "path": "/tools/js-minifier.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "base64-encode",
+      "name": "Base64 Encoder",
+      "category": "Developer Tools",
+      "description": "Encode text to Base64",
+      "icon": "🔐",
+      "path": "/tools/base64-encode.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "base64-decode",
+      "name": "Base64 Decoder",
+      "category": "Developer Tools",
+      "description": "Decode Base64 to text",
+      "icon": "🔓",
+      "path": "/tools/base64-decode.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "url-encode",
+      "name": "URL Encoder",
+      "category": "Developer Tools",
+      "description": "Encode URLs",
+      "icon": "🔗",
+      "path": "/tools/url-encode.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "url-decode",
+      "name": "URL Decoder",
+      "category": "Developer Tools",
+      "description": "Decode URLs",
+      "icon": "🔗",
+      "path": "/tools/url-decode.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "regex-tester",
+      "name": "Regex Tester",
+      "category": "Developer Tools",
+      "description": "Test regular expressions",
+      "icon": "🔍",
+      "path": "/tools/regex-tester.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "meta-generator",
+      "name": "Meta Tag Generator",
+      "category": "SEO Tools",
+      "description": "Generate HTML meta tags",
+      "icon": "🏷️",
+      "path": "/tools/meta-generator.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "seo-analyzer",
+      "name": "SEO Analyzer",
+      "category": "SEO Tools",
+      "description": "Analyze page SEO",
+      "icon": "📊",
+      "path": "/tools/seo-analyzer.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "js-beautifier",
+      "name": "JavaScript Beautifier",
+      "category": "Developer Tools",
+      "description": "Format JavaScript code",
+      "icon": "✨",
+      "path": "/tools/js-beautifier.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "css-beautifier",
+      "name": "CSS Beautifier",
+      "category": "Developer Tools",
+      "description": "Format CSS code",
+      "icon": "💅",
+      "path": "/tools/css-beautifier.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "html-beautifier",
+      "name": "HTML Beautifier",
+      "category": "Developer Tools",
+      "description": "Format HTML code",
+      "icon": "📝",
+      "path": "/tools/html-beautifier.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "qr-generator",
+      "name": "QR Code Generator",
+      "category": "Utilities",
+      "description": "Generate QR codes",
+      "icon": "📱",
+      "path": "/tools/qr-generator.html",
+      "enabled": true,
+      "featured": true,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top",
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "password-generator",
+      "name": "Password Generator",
+      "category": "Utilities",
+      "description": "Generate secure passwords",
+      "icon": "🔒",
+      "path": "/tools/password-generator.html",
+      "enabled": true,
+      "featured": true,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "uuid-generator",
+      "name": "UUID Generator",
+      "category": "Utilities",
+      "description": "Generate unique identifiers",
+      "icon": "🆔",
+      "path": "/tools/uuid-generator.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "color-picker",
+      "name": "Color Picker",
+      "category": "Utilities",
+      "description": "Pick and convert colors",
+      "icon": "🎨",
+      "path": "/tools/color-picker.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "ip-lookup",
+      "name": "IP Lookup",
+      "category": "Utilities",
+      "description": "Look up IP address information",
+      "icon": "🌍",
+      "path": "/tools/ip-lookup.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "browser-info",
+      "name": "Browser Info",
+      "category": "Utilities",
+      "description": "Get browser information",
+      "icon": "🌐",
+      "path": "/tools/browser-info.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "date-time-converter",
+      "name": "Date & Time Converter",
+      "category": "Utilities",
+      "description": "Convert between time zones",
+      "icon": "⏰",
+      "path": "/tools/date-time-converter.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "stopwatch",
+      "name": "Stopwatch",
+      "category": "Utilities",
+      "description": "Online stopwatch timer",
+      "icon": "⏱️",
+      "path": "/tools/stopwatch.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": false,
+        "positions": []
+      }
+    },
+    {
+      "id": "timer",
+      "name": "Timer",
+      "category": "Utilities",
+      "description": "Countdown timer",
+      "icon": "⏲️",
+      "path": "/tools/timer.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": false,
+        "positions": []
+      }
+    },
+    {
+      "id": "calculator",
+      "name": "Calculator",
+      "category": "Utilities",
+      "description": "Basic calculator",
+      "icon": "🧮",
+      "path": "/tools/calculator.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "unit-converter",
+      "name": "Unit Converter",
+      "category": "Utilities",
+      "description": "Convert between units",
+      "icon": "📐",
+      "path": "/tools/unit-converter.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "binary-decimal",
+      "name": "Binary/Decimal Converter",
+      "category": "Utilities",
+      "description": "Convert between binary and decimal",
+      "icon": "🔢",
+      "path": "/tools/binary-decimal.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "markdown-preview",
+      "name": "Markdown Preview",
+      "category": "Developer Tools",
+      "description": "Preview markdown formatting",
+      "icon": "📝",
+      "path": "/tools/markdown-preview.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "random-number",
+      "name": "Random Number Generator",
+      "category": "Utilities",
+      "description": "Generate random numbers",
+      "icon": "🎲",
+      "path": "/tools/random-number.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "password-strength",
+      "name": "Password Strength Checker",
+      "category": "Utilities",
+      "description": "Check password strength",
+      "icon": "🔐",
+      "path": "/tools/password-strength.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "emoji-generator",
+      "name": "Emoji Generator",
+      "category": "Fun Tools",
+      "description": "Browse and copy emojis",
+      "icon": "😊",
+      "path": "/tools/emoji-generator.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "random-joke",
+      "name": "Random Joke Generator",
+      "category": "Fun Tools",
+      "description": "Get random jokes",
+      "icon": "😂",
+      "path": "/tools/random-joke.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "quote-generator",
+      "name": "Quote Generator",
+      "category": "Fun Tools",
+      "description": "Generate inspirational quotes",
+      "icon": "💭",
+      "path": "/tools/quote-generator.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "weather-checker",
+      "name": "Weather Checker",
+      "category": "Utilities",
+      "description": "Check weather conditions",
+      "icon": "☀️",
+      "path": "/tools/weather-checker.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top",
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "currency-converter",
+      "name": "Currency Converter",
+      "category": "Utilities",
+      "description": "Convert between currencies",
+      "icon": "💱",
+      "path": "/tools/currency-converter.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "bmi-calculator",
+      "name": "BMI Calculator",
+      "category": "Health",
+      "description": "Calculate body mass index",
+      "icon": "⚖️",
+      "path": "/tools/bmi-calculator.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "age-calculator",
+      "name": "Age Calculator",
+      "category": "Utilities",
+      "description": "Calculate age precisely",
+      "icon": "🎂",
+      "path": "/tools/age-calculator.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "horoscope-generator",
+      "name": "Horoscope Generator",
+      "category": "Fun Tools",
+      "description": "Get daily horoscope",
+      "icon": "⭐",
+      "path": "/tools/horoscope-generator.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "birthday-reminder",
+      "name": "Birthday Reminder",
+      "category": "Utilities",
+      "description": "Track birthdays",
+      "icon": "🎉",
+      "path": "/tools/birthday-reminder.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "ai-seo-optimizer",
+      "name": "AI SEO Optimizer",
+      "category": "SEO Tools",
+      "description": "Analyze and optimize content for SEO",
+      "icon": "🚀",
+      "path": "/tools/ai-seo-optimizer.html",
+      "enabled": true,
+      "featured": true,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "id": "code-migrator",
+      "name": "AI Code Migrator",
+      "category": "Developer Tools",
+      "description": "Migrate code between languages",
+      "icon": "🔄",
+      "path": "/tools/code-migrator.html",
+      "enabled": true,
+      "featured": true,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "sidebar"
+        ]
+      }
+    },
+    {
+      "id": "secure-vault",
+      "name": "Secure Text Vault",
+      "category": "Utilities",
+      "description": "Client-side encrypted notes",
+      "icon": "🔐",
+      "path": "/tools/secure-vault.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": false,
+        "positions": []
+      }
+    },
+    {
+      "id": "smart-regex",
+      "name": "Smart Regex Builder",
+      "category": "Developer Tools",
+      "description": "Generate Regex with natural language",
+      "icon": "🔍",
+      "path": "/tools/smart-regex.html",
+      "enabled": true,
+      "featured": false,
+      "ads": {
+        "enabled": true,
+        "positions": [
+          "top"
+        ]
+      }
+    },
+    {
+      "id": "ai-studio",
+      "name": "AI Studio (Super)",
+      "category": "Super Tools",
+      "description": "All-in-one AI creation suite",
+      "icon": "✨",
+      "path": "/super/ai-studio.html",
+      "enabled": true,
+      "featured": true,
+      "ads": {
+        "enabled": false,
+        "positions": []
+      }
+    }
+  ]
+}
