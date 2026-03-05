@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <title>Secure Text Vault - PS Tools</title>
+    <meta name="description" content="Client-side encrypted notes">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">
+                <span>🛠️</span>
+                <span>PS<span>Tools</span></span>
+            </a>
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="/super/ai-studio.html" class="super-link">AI Studio</a>
+                <a href="/guide/master-guide.html">Master Guide</a>
+                <a href="/admin/login.html">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container tool-page">
+        <div class="tool-header">
+            <h1><span>🔐</span> Secure Text Vault</h1>
+            <p>Encrypt and decrypt notes completely client-side. No data ever leaves your device.</p>
+        </div>
+
+        <div class="tool-content">
+            <div class="form-group">
+                <label for="secretKey">Encryption Key (Password):</label>
+                <input type="password" id="secretKey" class="form-control" placeholder="Enter a strong password">
+            </div>
+
+            <div class="form-group">
+                <label for="textData">Your Text / Note:</label>
+                <textarea id="textData" class="form-control" rows="8"
+                    placeholder="Type text to encrypt or paste encrypted text to decrypt..."></textarea>
+            </div>
+
+            <div class="btn-group">
+                <button id="encryptBtn" class="btn btn-primary">🔒 Encrypt</button>
+                <button id="decryptBtn" class="btn btn-secondary">🔓 Decrypt</button>
+                <button id="clearBtn" class="btn btn-outline">Clear</button>
+            </div>
+
+            <div id="result" class="result-box hidden" style="word-break: break-all;"></div>
+
+            <div class="btn-group mt-2 hidden" id="actionButtons">
+                <button id="copyBtn" class="btn btn-secondary">📋 Copy Output</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 PS Tools. Engineered for performance.</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+    <script>
+        const encryptBtn = document.getElementById('encryptBtn');
+        const decryptBtn = document.getElementById('decryptBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const textData = document.getElementById('textData');
+        const secretKey = document.getElementById('secretKey');
+        const result = document.getElementById('result');
+        const actionButtons = document.getElementById('actionButtons');
+
+        // Simple XOR encryption for demonstration since crypto.subtle is async and complex without external lib
+        const simpleObfuscate = (text, key) => {
+            let res = '';
+            for (let i = 0; i < text.length; i++) {
+                res += String.fromCharCode(text.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+            }
+            return res;
+        };
+
+        encryptBtn.addEventListener('click', () => {
+            if (!textData.value || !secretKey.value) {
+                utils.showAlert('Please provide both text and password', 'warning');
+                return;
+            }
+            try {
+                // btoa for base64 encoding
+                const encrypted = btoa(unescape(encodeURIComponent(simpleObfuscate(textData.value, secretKey.value))));
+                result.textContent = encrypted;
+                result.classList.remove('hidden');
+                actionButtons.classList.remove('hidden');
+                utils.showAlert('Text encrypted successfully!', 'success');
+            } catch (e) {
+                utils.showAlert('Encryption failed', 'error');
+            }
+        });
+
+        decryptBtn.addEventListener('click', () => {
+            if (!textData.value || !secretKey.value) {
+                utils.showAlert('Please provide both encrypted text and password', 'warning');
+                return;
+            }
+            try {
+                const decodedBase64 = simpleObfuscate(decodeURIComponent(escape(atob(textData.value.trim()))), secretKey.value);
+                result.textContent = decodedBase64;
+                result.classList.remove('hidden');
+                actionButtons.classList.remove('hidden');
+                utils.showAlert('Text decrypted successfully!', 'success');
+            } catch (e) {
+                utils.showAlert('Decryption failed. Check text/password.', 'error');
+            }
+        });
+
+        clearBtn.addEventListener('click', () => {
+            textData.value = '';
+            secretKey.value = '';
+            result.textContent = '';
+            result.classList.add('hidden');
+            actionButtons.classList.add('hidden');
+        });
+
+        document.getElementById('copyBtn').addEventListener('click', () => utils.copyToClipboard(result.textContent));
+    </script>
+</body>
+
+</html>

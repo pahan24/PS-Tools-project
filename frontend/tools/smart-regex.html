@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <title>Smart Regex Builder - PS Tools</title>
+    <meta name="description" content="Generate Regex with natural language">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">
+                <span>🛠️</span>
+                <span>PS<span>Tools</span></span>
+            </a>
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="/super/ai-studio.html" class="super-link">AI Studio</a>
+                <a href="/guide/master-guide.html">Master Guide</a>
+                <a href="/admin/login.html">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container tool-page">
+        <div class="tool-header">
+            <h1><span>🔍</span> Smart Regex Builder</h1>
+            <p>Generate Regular Expressions using plain English descriptions.</p>
+        </div>
+
+        <div class="tool-content">
+            <div class="form-group">
+                <label for="prompt">What should the regex do?</label>
+                <textarea id="prompt" class="form-control" rows="4"
+                    placeholder="e.g. Match a valid email address ending in @gmail.com"></textarea>
+            </div>
+
+            <div class="btn-group">
+                <button id="generateBtn" class="btn btn-primary">🔍 Build Regex</button>
+                <button id="clearBtn" class="btn btn-outline">Clear</button>
+            </div>
+
+            <div id="result" class="result-box hidden"
+                style="font-family: monospace; font-size: 1.2rem; background: #2d2d2d; color: #4af626; text-align: center;">
+            </div>
+
+            <div class="btn-group mt-2 hidden" id="actionButtons">
+                <button id="copyBtn" class="btn btn-secondary">📋 Copy Regex</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 PS Tools. Engineered for performance.</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+    <script>
+        const generateBtn = document.getElementById('generateBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const prompt = document.getElementById('prompt');
+        const result = document.getElementById('result');
+        const actionButtons = document.getElementById('actionButtons');
+
+        generateBtn.addEventListener('click', async () => {
+            if (!prompt.value.trim()) {
+                utils.showAlert('Please describe what you want the regex to do', 'warning');
+                return;
+            }
+            utils.setLoading(generateBtn, true);
+            try {
+                const aiPrompt = `Write a Regular Expression that does the following: "${prompt.value}". Return ONLY the regex string without any explanation, markdown, or slashes if possible. The response should just be the raw pattern.`;
+                const response = await api.generateCode(aiPrompt, 'regex');
+                result.textContent = response.text || response.code || response;
+                if (typeof result.textContent === 'object') result.textContent = response.text;
+
+                // Clean up slashes if AI adds them
+                let cleanResult = result.textContent.trim();
+                result.textContent = cleanResult;
+
+                result.classList.remove('hidden');
+                actionButtons.classList.remove('hidden');
+                utils.showAlert('Regex generated successfully!', 'success');
+            } catch (error) {
+                utils.showAlert('Failed to generate regex: ' + error.message, 'error');
+            } finally {
+                utils.setLoading(generateBtn, false);
+            }
+        });
+
+        clearBtn.addEventListener('click', () => {
+            prompt.value = '';
+            result.textContent = '';
+            result.classList.add('hidden');
+            actionButtons.classList.add('hidden');
+        });
+
+        document.getElementById('copyBtn').addEventListener('click', () => utils.copyToClipboard(result.textContent));
+    </script>
+</body>
+
+</html>

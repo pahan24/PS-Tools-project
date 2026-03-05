@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <title>AI SEO Optimizer - PS Tools</title>
+    <meta name="description" content="Analyze and optimize content for SEO">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">
+                <span>🛠️</span>
+                <span>PS<span>Tools</span></span>
+            </a>
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="/super/ai-studio.html" class="super-link">AI Studio</a>
+                <a href="/guide/master-guide.html">Master Guide</a>
+                <a href="/admin/login.html">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container tool-page">
+        <div class="tool-header">
+            <h1><span>🚀</span> AI SEO Optimizer</h1>
+            <p>Analyze and optimize content for SEO</p>
+        </div>
+
+        <div class="tool-content">
+            <div class="form-group">
+                <label for="keyword">Target Keyword:</label>
+                <input type="text" id="keyword" class="form-control" placeholder="e.g. best coffee makers">
+            </div>
+            <div class="form-group">
+                <label for="content">Your Content:</label>
+                <textarea id="content" class="form-control" rows="8"
+                    placeholder="Paste your article or content here..."></textarea>
+            </div>
+
+            <div class="btn-group">
+                <button id="generateBtn" class="btn btn-primary">🚀 Optimize SEO</button>
+                <button id="clearBtn" class="btn btn-outline">Clear</button>
+            </div>
+
+            <div id="result" class="result-box hidden" style="white-space: pre-wrap;"></div>
+
+            <div class="btn-group mt-2 hidden" id="actionButtons">
+                <button id="copyBtn" class="btn btn-secondary">📋 Copy Insights</button>
+                <button id="downloadBtn" class="btn btn-secondary">💾 Download</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 PS Tools. Engineered for performance.</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+    <script>
+        const generateBtn = document.getElementById('generateBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const content = document.getElementById('content');
+        const keyword = document.getElementById('keyword');
+        const result = document.getElementById('result');
+        const actionButtons = document.getElementById('actionButtons');
+
+        generateBtn.addEventListener('click', async () => {
+            if (!content.value.trim() || !keyword.value.trim()) {
+                utils.showAlert('Please enter both keyword and content', 'warning');
+                return;
+            }
+            utils.setLoading(generateBtn, true);
+            try {
+                const prompt = `Act as an expert SEO analyst. Analyze the following content for the target keyword "${keyword.value}". Provide an SEO score (0-100), identify missing opportunities, suggest LSI keywords, and provide a rewrite of the first paragraph optimized for the keyword.\n\nContent:\n${content.value}`;
+                const response = await api.generateText(prompt);
+                result.textContent = response.text;
+                result.classList.remove('hidden');
+                actionButtons.classList.remove('hidden');
+                utils.showAlert('Optimization analysis complete!', 'success');
+            } catch (error) {
+                utils.showAlert('Failed to analyze: ' + error.message, 'error');
+            } finally {
+                utils.setLoading(generateBtn, false);
+            }
+        });
+
+        clearBtn.addEventListener('click', () => {
+            content.value = '';
+            keyword.value = '';
+            result.textContent = '';
+            result.classList.add('hidden');
+            actionButtons.classList.add('hidden');
+        });
+
+        document.getElementById('copyBtn').addEventListener('click', () => utils.copyToClipboard(result.textContent));
+        document.getElementById('downloadBtn').addEventListener('click', () => utils.downloadText(result.textContent, 'seo-analysis.txt'));
+    </script>
+</body>
+
+</html>

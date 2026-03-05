@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <title>Base64 Encoder - PS Tools</title>
+    <meta name="description" content="Encode text to Base64">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+            <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">
+                <span>🛠️</span>
+                <span>PS<span>Tools</span></span>
+            </a>
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="/super/ai-studio.html" class="super-link">AI Studio</a>
+                <a href="/guide/master-guide.html">Master Guide</a>
+                <a href="/admin/login.html">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container tool-page">
+        <div class="tool-header">
+            <h1><span>🔐</span> Base64 Encoder</h1>
+            <p>Encode text to Base64</p>
+        </div>
+
+        <div class="tool-content">
+            
+      <div class="form-group">
+        <label for="input">Input:</label>
+        <input type="text" id="input" class="form-control">
+      </div>
+      <button id="processBtn" class="btn btn-primary">🔐 Process</button>
+      <div id="result" class="result-box hidden"></div>
+        </div>
+    </div>
+
+            <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 PS Tools. Engineered for performance.</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+    <script>
+        document.getElementById('processBtn')?.addEventListener('click', () => { utils.showAlert('Tool functionality ready!', 'info'); });
+    </script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Studio (Super) | PS Tools</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        .studio-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr 320px;
+            gap: 1.5rem;
+            height: calc(100vh - 160px);
+            margin-top: 1rem;
+        }
+
+        .pane {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pane-header {
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .pane-header h2 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin: 0;
+            color: var(--text-dim);
+        }
+
+        .pane-content {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+
+        /* Studio Specific Components */
+        .tool-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .tool-item {
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .tool-item:hover,
+        .tool-item.active {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+        }
+
+        .tool-item i {
+            font-style: normal;
+            font-size: 1.2rem;
+        }
+
+        .chat-input-container {
+            padding: 1.5rem;
+            border-top: 1px solid var(--card-border);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .chat-output {
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+        }
+
+        .message.ai {
+            border-left: 3px solid var(--primary);
+        }
+
+        textarea.studio-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-family: inherit;
+            resize: none;
+            outline: none;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1200px) {
+            .studio-layout {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+        <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">
+                <span>🛠️</span>
+                <span>PS<span>Tools</span></span>
+            </a>
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="/super/ai-studio.html" class="super-link">AI Studio</a>
+                <a href="/guide/master-guide.html">Master Guide</a>
+                <a href="/admin/login.html">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container" style="max-width: 1600px;">
+        <div class="studio-layout">
+            <!-- Left Pane: Library -->
+            <aside class="pane">
+                <div class="pane-header">
+                    <h2>Module Library</h2>
+                </div>
+                <div class="pane-content">
+                    <div class="tool-selector">
+                        <div class="tool-item active" onclick="switchMode('text')"><i>✍️</i> Text Architect</div>
+                        <div class="tool-item" onclick="switchMode('code')"><i>💻</i> Code Engine</div>
+                        <div class="tool-item" onclick="switchMode('chat')"><i>💬</i> Assistant</div>
+                        <div class="tool-item" onclick="switchMode('translate')"><i>🌐</i> Global Flux</div>
+                    </div>
+                    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--card-border);">
+                        <h2>Recent Exports</h2>
+                        <div id="exportsList" style="font-size: 0.85rem; color: var(--text-dim); margin-top: 1rem;">No
+                            exports yet.</div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Middle Pane: Workspace -->
+            <main class="pane">
+                <div class="pane-header">
+                    <h2 id="studioTitle">Text Architect</h2>
+                    <button id="mainActionBtn" class="btn btn-primary btn-sm">Process Signal</button>
+                </div>
+                <div class="pane-content">
+                    <textarea id="studioInput" class="studio-input" placeholder="Initiate sequence..."
+                        rows="15"></textarea>
+                    <div id="studioOutput" class="chat-output hidden"
+                        style="margin-top: 2rem; border-top: 1px solid var(--card-border); padding-top: 2rem;">
+                        <!-- Results injected here -->
+                    </div>
+                </div>
+            </main>
+
+            <!-- Right Pane: Parameters -->
+            <section class="pane">
+                <div class="pane-header">
+                    <h2>Control Deck</h2>
+                </div>
+                <div class="pane-content">
+                    <div class="form-group">
+                        <label>Creativity Index (Temp)</label>
+                        <input type="range" min="0" max="100" value="70">
+                    </div>
+                    <div class="form-group">
+                        <label>Response Depth</label>
+                        <select class="form-control">
+                            <option>Concise Pulse</option>
+                            <option selected>Standard Stream</option>
+                            <option>Deep Analysis</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Target Ecosystem</label>
+                        <input type="text" class="form-control" placeholder="e.g. JavaScript, Marketing...">
+                    </div>
+                    <div style="margin-top: auto; padding: 1.5rem; background: rgba(0,0,0,0.1); border-radius: 12px;">
+                        <span
+                            style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 0.5rem;">CORE
+                            STATUS</span>
+                        <div style="display: flex; align-items: center; gap: 0.5rem; color: #10b981; font-weight: 700;">
+                            <span class="status-pulse"
+                                style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></span>
+                            Operational
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="/assets/js/main.js"></script>
+    <script>
+        let currentMode = 'text';
+
+        async function processSignal() {
+            const input = document.getElementById('studioInput').value;
+            const btn = document.getElementById('mainActionBtn');
+            const output = document.getElementById('studioOutput');
+
+            if (!input) return utils.showAlert('Input required for processing', 'warning');
+
+            utils.setLoading(btn, true);
+            output.classList.remove('hidden');
+            output.innerHTML = '<div class="loading"></div>';
+
+            try {
+                const endpoint = `/api/ai/${currentMode === 'text' ? 'text' : currentMode}`;
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt: input })
+                });
+
+                const data = await response.json();
+                output.innerHTML = `
+                    <div class="message ai">
+                        <div style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 0.5rem;">SIGNAL RECEIVED</div>
+                        <div style="white-space: pre-wrap;">${data.text || data.code || 'Processing error'}</div>
+                    </div>`;
+
+                // Track history
+                addExportRecord(currentMode);
+            } catch (error) {
+                utils.showAlert('Signal lost in transmission', 'error');
+                output.innerHTML = 'Transmission Failed.';
+            } finally {
+                utils.setLoading(btn, false);
+            }
+        }
+
+        function switchMode(mode) {
+            currentMode = mode;
+            document.querySelectorAll('.tool-item').forEach(el => el.classList.remove('active'));
+            event.target.closest('.tool-item').classList.add('active');
+
+            const titles = { text: 'Text Architect', code: 'Code Engine', chat: 'Assistant', translate: 'Global Flux' };
+            document.getElementById('studioTitle').textContent = titles[mode];
+            document.getElementById('studioInput').placeholder = `Initiate ${titles[mode]} sequence...`;
+        }
+
+        function addExportRecord(type) {
+            const list = document.getElementById('exportsList');
+            if (list.textContent === 'No exports yet.') list.innerHTML = '';
+            const div = document.createElement('div');
+            div.style.marginBottom = '0.5rem';
+            div.textContent = `${new Date().toLocaleTimeString()} - ${type.toUpperCase()}`;
+            list.prepend(div);
+        }
+
+        document.getElementById('mainActionBtn').addEventListener('click', processSignal);
+    </script>
+</body>
+
+</html>

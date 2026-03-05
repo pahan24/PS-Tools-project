@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="PS Tools - Elite collection of 70+ free online AI, image, and developer utilities.">
+    <meta name="keywords" content="AI tools, developer utilities, image processing, online tools, free web tools">
+    <title>PS Tools | Elite Online Toolkit</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/wrench.png">
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">
+                <span>🛠️</span>
+                <span>PS<span>Tools</span></span>
+            </a>
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="/super/ai-studio.html" class="super-link">AI Studio</a>
+                <a href="/guide/master-guide.html">Master Guide</a>
+                <a href="/admin/login.html">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Elite Tools for <span>Modern Creators</span></h1>
+            <p>Access 70+ premium online utilities powered by cutting-edge technology. Free, fast, and secure.</p>
+        </section>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Search for your next tool..." autocomplete="off" />
+        </div>
+
+        <!-- Categories -->
+        <div class="categories" id="categories">
+            <button class="category-btn active" data-category="all">All Ecosystems</button>
+            <button class="category-btn" data-category="Super Tools"
+                style="border-color: var(--secondary); color: var(--secondary);">✨ Super Tools</button>
+        </div>
+
+        <!-- Tools Grid -->
+        <div id="tools" class="tools-grid" id="toolsGrid">
+            <!-- Tools will be dynamically injected here -->
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading" class="text-center" style="padding: 5rem 0;">
+            <div class="loading" style="width: 60px; height: 60px; border-width: 5px; margin: 0 auto;"></div>
+            <p style="margin-top: 2rem; color: var(--text-muted); font-size: 1.2rem;">Orchestrating tools...</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 PS Tools. Engineered for performance.</p>
+            <div class="footer-links">
+                <a href="#privacy">Privacy</a>
+                <a href="#terms">Terms</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/main.js"></script>
+    <script>
+        let allTools = [];
+        let categories = new Set();
+
+        // Load tools from API
+        async function loadTools() {
+            try {
+                const response = await api.getTools();
+                allTools = response.tools;
+
+                // Extract unique categories and sort them
+                allTools.forEach(tool => categories.add(tool.category));
+
+                // Render categories & tools
+                renderCategories();
+                renderTools(allTools);
+
+                // Hide loading with a smooth fade
+                const loading = document.getElementById('loading');
+                loading.style.opacity = '0';
+                setTimeout(() => loading.style.display = 'none', 300);
+            } catch (error) {
+                console.error('Core Error:', error);
+                document.getElementById('loading').innerHTML =
+                    `<div class="alert alert-error" style="max-width: 400px; margin: 0 auto;">
+                        Failed to connect to the toolkit. Please refresh.
+                    </div>`;
+            }
+        }
+
+        // Render categories as premium pills
+        function renderCategories() {
+            const container = document.getElementById('categories');
+
+            Array.from(categories).sort().forEach(category => {
+                const btn = document.createElement('button');
+                btn.className = 'category-btn';
+                btn.dataset.category = category;
+                btn.textContent = category;
+                btn.addEventListener('click', filterByCategory);
+                container.appendChild(btn);
+            });
+        }
+
+        // Render tools as animated cards
+        function renderTools(tools) {
+            const grid = document.getElementById('tools'); // Fixed: was using internal reference 'toolsGrid'
+            grid.innerHTML = '';
+
+            if (tools.length === 0) {
+                grid.innerHTML = `
+                    <p style="grid-column: 1/-1; text-align: center; color: var(--text-dim); padding: 4rem 0; font-size: 1.2rem;">
+                        No tools found matching your search.
+                    </p>`;
+                return;
+            }
+
+            tools.forEach((tool, index) => {
+                const card = document.createElement('a');
+                card.href = tool.path;
+                card.className = 'tool-card';
+                card.style.animationDelay = `${index * 0.05}s`;
+                card.innerHTML = `
+                    <div class="tool-icon">${tool.icon}</div>
+                    <div class="tool-name">${tool.name}</div>
+                    <div class="tool-description">${tool.description}</div>
+                    <div class="tool-category">${tool.category}</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter by category
+        function filterByCategory(e) {
+            const category = e.target.dataset.category;
+
+            // UI Update
+            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+            e.target.classList.add('active');
+
+            // Logic Update
+            const filtered = category === 'all'
+                ? allTools
+                : allTools.filter(tool => tool.category === category);
+
+            renderTools(filtered);
+        }
+
+        // Real-time Search with Debounce
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', utils.debounce((e) => {
+            const query = e.target.value.toLowerCase();
+            const filtered = allTools.filter(tool =>
+                tool.name.toLowerCase().includes(query) ||
+                tool.description.toLowerCase().includes(query) ||
+                tool.category.toLowerCase().includes(query)
+            );
+            renderTools(filtered);
+        }, 150));
+
+        // Initialize toolkit
+        document.addEventListener('DOMContentLoaded', loadTools);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <title>GIF Maker - PS Tools</title>
+    <meta name="description" content="Create animated GIFs">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+            <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">
+                <span>🛠️</span>
+                <span>PS<span>Tools</span></span>
+            </a>
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="/super/ai-studio.html" class="super-link">AI Studio</a>
+                <a href="/guide/master-guide.html">Master Guide</a>
+                <a href="/admin/login.html">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container tool-page">
+        <div class="tool-header">
+            <h1><span>🎬</span> GIF Maker</h1>
+            <p>Create animated GIFs</p>
+        </div>
+
+        <div class="tool-content">
+            
+      <div class="form-group">
+        <label for="imageUpload">Upload Image:</label>
+        <input type="file" id="imageUpload" class="form-control" accept="image/*">
+      </div>
+      
+      <div class="image-container hidden" id="previewContainer">
+        <canvas id="canvas"></canvas>
+      </div>
+      <div class="btn-group mt-2 hidden" id="actionButtons">
+        <button id="processBtn" class="btn btn-primary">🎬 Process</button>
+        <button id="downloadBtn" class="btn btn-secondary">💾 Download</button>
+        <button id="resetBtn" class="btn btn-outline">🔄 Reset</button>
+      </div>
+        </div>
+    </div>
+
+            <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 PS Tools. Engineered for performance.</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+    <script>
+        const imageUpload = document.getElementById('imageUpload');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+let currentImage = null;
+
+imageUpload.addEventListener('change', async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  
+  const img = new Image();
+  img.onload = () => {
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0, 0);
+    currentImage = img;
+    document.getElementById('previewContainer').classList.remove('hidden');
+    document.getElementById('actionButtons').classList.remove('hidden');
+  };
+  img.src = await utils.readFileAsDataURL(file);
+});
+
+document.getElementById('processBtn')?.addEventListener('click', () => {
+  if (!currentImage) { utils.showAlert('Please upload an image first', 'warning'); return; }
+  // Add specific processing logic here
+  utils.showAlert('Image processed!', 'success');
+});
+
+document.getElementById('downloadBtn')?.addEventListener('click', () => {
+  if (!canvas) return;
+  utils.downloadImage(canvas.toDataURL(), 'processed-image.png');
+});
+
+document.getElementById('resetBtn')?.addEventListener('click', () => {
+  if (currentImage) ctx.drawImage(currentImage, 0, 0);
+});
+    </script>
+</body>
+</html>
